@@ -1,8 +1,9 @@
+/** Enum который содержит
+ *
+ */
 import static SimpleNames.*;
 public enum EncryptionMethods {
-  /**
-   *
-   */
+
   CESAR(SimpleNames.CESAR_NAME),
   VISIONERE(SimpleNames.VISIONER_NAME);
 
