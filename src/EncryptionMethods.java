@@ -1,9 +1,10 @@
+import static SimpleNames.*;
 public enum EncryptionMethods {
   /**
    *
    */
-  CESAR("c"),
-  VISIONERE("v");
+  CESAR(SimpleNames.CESAR_NAME),
+  VISIONERE(SimpleNames.VISIONER_NAME);
 
 
   private String simpleName;
@@ -16,9 +17,9 @@ public enum EncryptionMethods {
   }
   public static EncryptionMethods getBySimpleName(String name){
     return switch (name) {
-      case "c"->CESAR;
-      case "v"->VISIONERE;
+      case CESAR_NAME->CESAR;
+      case VISIONER_NAME->VISIONERE;
       default -> null;
-    }
+    };
   }
 }
