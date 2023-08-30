@@ -13,8 +13,8 @@ public class EncryptionHelper {
       for(char ch:c.toCharArray()){
         res.append((char)(ch+3));
         //TODO Hello there!
-        res.append((char)(ch+(counter%2==0 ? 4 : 3)));
-        counter++;
+      //  res.append((char)(ch+(counter%2==0 ? 4 : 3)));
+      //  counter++;
       }
       return res.toString();
     });
