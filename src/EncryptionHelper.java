@@ -9,8 +9,10 @@ public class EncryptionHelper {
   static{
     encryptionFunction.put(CESAR_NAME + "encrypt", c-> {
       StringBuilder res=new StringBuilder();
+      int counter=0;
       for(char ch:c.toCharArray()){
         res.append((char)(ch+3));
+        //res.append((char)(ch+(counter%2==0 ? 4 : 3)));
       }
       return res.toString();
     });
@@ -18,6 +20,7 @@ public class EncryptionHelper {
       StringBuilder res=new StringBuilder();
       for(char ch:c.toCharArray()){
         res.append((char)(ch-3));
+        //res.append((char)(ch-(counter%2==0 ? 4 : 3)));
       }
       return res.toString();
     });
