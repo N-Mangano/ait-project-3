@@ -10,14 +10,14 @@ public class EncryptionHelper {
     encryptionFunction.put(CESAR_NAME + "encrypt", c-> {
       StringBuilder res=new StringBuilder();
       for(char ch:c.toCharArray()){
-        res.append((char)ch+3);
+        res.append((char)(ch+3));
       }
       return res.toString();
     });
     encryptionFunction.put(CESAR_NAME + "decrypt", c-> {
       StringBuilder res=new StringBuilder();
       for(char ch:c.toCharArray()){
-        res.append((char)ch-3);
+        res.append((char)(ch-3));
       }
       return res.toString();
     });
