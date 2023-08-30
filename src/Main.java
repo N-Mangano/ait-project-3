@@ -8,5 +8,14 @@ public class Main {
 
     String decryptedText=EncryptionHelper.decrypt(EncryptionMethods.CESAR,encryptedText);
     System.out.println(" Текст расшифрован: "+ decryptedText);
+
+    /* TODO
+  // если код символа  больше A-я
+    if((int)ch<=1040 & (int)ch>1104 ){
+  // будет выполняться код для русской клавиатуры
+    }
+    else {
+      //код для английской
+    } */
   }
 }

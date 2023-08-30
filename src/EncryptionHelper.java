@@ -6,23 +6,26 @@ import java.util.Map;
 public class EncryptionHelper {
   private static final Map<String, EncryptionFunction> encryptionFunction =new HashMap<>();
 
-  static{
-    encryptionFunction.put(CESAR_NAME + "encrypt", c-> {
+  static{                                                   //Map<String    , EncryptionFunction>
+    encryptionFunction.put(CESAR_NAME + "encrypt", c-> {      //с encrypt , Khoor#wkhuh$
       StringBuilder res=new StringBuilder();
       int counter=0;
       for(char ch:c.toCharArray()){
         res.append((char)(ch+3));
-        //TODO
-        //res.append((char)(ch+(counter%2==0 ? 4 : 3)));
+        //TODO Hello there!
+        res.append((char)(ch+(counter%2==0 ? 4 : 3)));
+        counter++;
       }
       return res.toString();
     });
-    encryptionFunction.put(CESAR_NAME + "decrypt", c-> {
+    encryptionFunction.put(CESAR_NAME + "decrypt", c-> { //с decrypt , Hello there!
       StringBuilder res=new StringBuilder();
+      int counter=0;
       for(char ch:c.toCharArray()){
         res.append((char)(ch-3));
         //TODO
-        //res.append((char)(ch-(counter%2==0 ? 4 : 3)));
+       // res.append((char)(ch-(counter%2==0 ? 4 : 3)));
+      //  counter++;
       }
       return res.toString();
     });

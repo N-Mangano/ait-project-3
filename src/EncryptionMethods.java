@@ -18,8 +18,8 @@ public enum EncryptionMethods {
   }
   public static EncryptionMethods getBySimpleName(String name){
     return switch (name) {
-      case SimpleNames.CESAR_NAME->CESAR;
-      case SimpleNames.VISIONER_NAME->VISIONERE;
+      case SimpleNames.CESAR_NAME->CESAR; //c
+      case SimpleNames.VISIONER_NAME->VISIONERE;// v
       default -> null;
     };
   }
