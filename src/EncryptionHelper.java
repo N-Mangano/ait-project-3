@@ -1,22 +1,23 @@
+import static simpleName.SimpleNames.*;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import static SimpleNames.*;
 public class EncryptionHelper {
   private static final Map<String, EncryptionFunction> encryptionFunction =new HashMap<>();
 
   static{
-    encryptionFunction.put(CESAR_NAME + "encrypt", s-> {
+    encryptionFunction.put(CESAR_NAME + "encrypt", c-> {
       StringBuilder res=new StringBuilder();
-      for(char ch:s.toCharArray()){
-        res.append(ch+3);
+      for(char ch:c.toCharArray()){
+        res.append((char)ch+3);
       }
       return res.toString();
     });
-    encryptionFunction.put(CESAR_NAME + "decrypt", s-> {
+    encryptionFunction.put(CESAR_NAME + "decrypt", c-> {
       StringBuilder res=new StringBuilder();
-      for(char ch:s.toCharArray()){
-        res.append(ch-3);
+      for(char ch:c.toCharArray()){
+        res.append((char)ch-3);
       }
       return res.toString();
     });
@@ -25,7 +26,7 @@ public class EncryptionHelper {
 
   public static String encrypt(EncryptionMethods method, String text) {
     return switch (method) {
-      case CESAR -> encryptionFunction.get(method.getSimpleName() + "encrypt").process(text);
+      case CESAR ->encryptionFunction.get(method.getSimpleName() + "encrypt").process(text);
       case VISIONERE -> "";
     };
   }

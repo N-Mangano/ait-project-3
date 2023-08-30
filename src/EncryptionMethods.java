@@ -1,9 +1,9 @@
 /** Enum который содержит метод выбора способа шифрования
  *
  */
-import static SimpleNames.*;
-public enum EncryptionMethods {
+import simpleName.SimpleNames;
 
+public enum EncryptionMethods {
   CESAR(SimpleNames.CESAR_NAME),
   VISIONERE(SimpleNames.VISIONER_NAME);
 
@@ -18,8 +18,8 @@ public enum EncryptionMethods {
   }
   public static EncryptionMethods getBySimpleName(String name){
     return switch (name) {
-      case CESAR_NAME->CESAR;
-      case VISIONER_NAME->VISIONERE;
+      case SimpleNames.CESAR_NAME->CESAR;
+      case SimpleNames.VISIONER_NAME->VISIONERE;
       default -> null;
     };
   }
