@@ -20,6 +20,10 @@ public class Vigenere {
           char encryptedChar = (char) ((offset + keyChar) % 32 + numberOfCyrillicLetters);
           encryptedText.append(encryptedChar);
           keyIndex = (keyIndex + 1) % key.length();
+          // если ЛАТИНИЦА
+        } else {
+
+
 
 
 }
