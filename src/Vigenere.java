@@ -52,6 +52,18 @@ public class Vigenere {
           char decryptedChar = (char) ((offset - keyChar + 32) % 32 + numberOfCyrillicLetters);
           decryptedText.append(decryptedChar);
           keyIndex = (keyIndex + 1) % key.length();
-
-
+          // если ЛАТИНИЦА
+        }else{
+          int offset = (int) (c - numberOfLatinLetters);
+          int keyChar = key.charAt(keyIndex) - 'A';
+          char decryptedChar = (char) ((offset - keyChar + 26) % 26 + numberOfLatinLetters);
+          decryptedText.append(decryptedChar);
+          keyIndex = (keyIndex + 1) % key.length();
+        }
+      } else {
+        decryptedText.append(c);
+      }
+    }
+    return decryptedText.toString();
+  }
 }
