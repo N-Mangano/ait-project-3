@@ -36,6 +36,13 @@ public class Vigenere {
     return encryptedText.toString();
   }
 
+  public String decrypt(String encryptedText) {
+    StringBuilder decryptedText = new StringBuilder();
+    int keyIndex = 0;
+
+    for (int i = 0; i < encryptedText.length(); i++) {
+      char c = encryptedText.charAt(i);
+
 
 
 
