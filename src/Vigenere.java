@@ -22,6 +22,20 @@ public class Vigenere {
           keyIndex = (keyIndex + 1) % key.length();
           // если ЛАТИНИЦА
         } else {
+          int offset = (int) (c - numberOfLatinLetters);
+          int keyChar = key.charAt(keyIndex) - 'A';
+          char encryptedChar = (char) ((offset + keyChar) % 26 + numberOfLatinLetters);
+          encryptedText.append(encryptedChar);
+          keyIndex = (keyIndex + 1) % key.length();
+        }
+
+      } else {
+        encryptedText.append(c);
+      }
+    }
+    return encryptedText.toString();
+  }
+
 
 
 
