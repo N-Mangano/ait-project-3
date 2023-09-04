@@ -16,6 +16,7 @@ public enum EncryptionMethods {
   public String getSimpleName() {
     return simpleName;
   }
+
   public static EncryptionMethods getBySimpleName(String name){
     return switch (name) {
       case SimpleNames.CESAR_NAME->CESAR; //c
