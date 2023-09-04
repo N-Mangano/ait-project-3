@@ -34,10 +34,12 @@ public class Main {
                 encryptDecryptText(method, text, key);
                 break;
               case MainMenu.EXIT:
+                System.out.println("\u001B[32m До новых встреч! \u001B[0m");
                 run1 = false;
                 break;
             }
           }
+          break;
         case MainMenu.EXIT:
           run = false;
           break;

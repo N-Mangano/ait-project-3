@@ -5,12 +5,14 @@
  * в котором произведены все вычисления данных способов шифрования
  */
 
-import static simpleName.SimpleNames.*;
+import static simpleName.SimpleNames.CESAR_NAME;
+import static simpleName.SimpleNames.VIGENERE_NAME;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class EncryptionHelper {
+
 
   // Мапа в которую передают как ключ название метода+шафровать/расшифровать
   // и значение в которое передаем результат методов шифрование/дешифрование в виде строки
@@ -20,8 +22,14 @@ public class EncryptionHelper {
    * нутренний класс, содержит методы шифрования и расшифровки Цезарь и Вижерона
    */
 
-  private static class EncryptionFunctions{
+   static class EncryptionFunctions{
+    private final int bias,
+        letters;
 
+    public EncryptionFunctions(final int bias, final int letters) {
+      this.bias = bias;
+      this.letters = letters;
+    }
     /**
      * метод шифрования Цезаря, реализуется посредством сдвига
      * каждой нечетной буквы на 4 сивола по алфавиту в право, и
@@ -99,6 +107,25 @@ public class EncryptionHelper {
       }
       return encryptedText.toString();
     }
+    /////////////////////////////// TODO пересмотреть
+    public String encrypt(String v, String key) {
+      String encrypt = "";
+      final int keyLen = key.length();
+      for (int i = 0, len = v.length(); i < len; i++) {
+        encrypt += (char) (((v.charAt(i) + key.charAt(i % keyLen) - 2 * this.bias) % this.letters) + this.bias);
+      }
+      return encrypt;
+    }
+
+    public String decrypt(String v, String key) {
+      String decrypt = "";
+      final int keyLen = key.length();
+      for (int i = 0, len = v.length(); i < len; i++) {
+        decrypt += (char) (((v.charAt(i) - key.charAt(i % keyLen) + this.letters) % this.letters) + this.bias);
+      }
+      return decrypt;
+    }
+    //////////////////
     public static String decryptionVigener(String v,String key){
       StringBuilder decryptedText = new StringBuilder();
       int keyIndex = 0;
