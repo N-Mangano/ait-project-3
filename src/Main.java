@@ -1,14 +1,14 @@
+import simpleName.SimpleNames;
+
 public class Main {
 
   public static void main(String[] args) {
 
-    String text="Hello there!";
-    System.out.println(" Текст исходный  :  "+text);
-    String encryptedText=EncryptionHelper.encrypt(EncryptionMethods.CESAR,text);
-    System.out.println(" Текст зашифрован:  "+ encryptedText);
+    EncryptionMethods method = EncryptionMethods.CESAR;
+    String key = null;
+    String text = "Hello there!";
 
-    String decryptedText=EncryptionHelper.decrypt(EncryptionMethods.CESAR,encryptedText);
-    System.out.println(" Текст расшифрован: "+ decryptedText);
+    encryptDecryptText(method, text, key);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 //    String text1="Hello there!";
 //    System.out.println(" Текст исходный  :  "+text);
@@ -18,7 +18,20 @@ public class Main {
 //    String decryptedText1=EncryptionHelper.decrypt(EncryptionMethods.CESAR,key,encryptedText1);
 //    System.out.println(" Текст расшифрован: "+ decryptedText1);
 
+    key = "key";
+    text = "Hello there222!";
+    method = EncryptionMethods.VIGENERE;
 
+    encryptDecryptText(method, text, key);
 
+  }
+
+  private static void encryptDecryptText(EncryptionMethods method, String text, String key) {
+    System.out.println(" Текст исходный  : " + text);
+    String encryptedText = EncryptionHelper.encrypt(method, text, key);
+    System.out.println(" Текст зашифрован " + method + ": " + encryptedText);
+
+    String decryptedText = EncryptionHelper.decrypt(method, encryptedText, key);
+    System.out.println(" Текст расшифрован " + method + ": " + decryptedText);
   }
 }

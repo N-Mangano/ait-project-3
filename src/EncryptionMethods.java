@@ -5,7 +5,7 @@ import simpleName.SimpleNames;
 
 public enum EncryptionMethods {
   CESAR(SimpleNames.CESAR_NAME),
-  VISIONERE(SimpleNames.VISIONER_NAME);
+  VIGENERE(SimpleNames.VIGENERE_NAME);
 
 
   private String simpleName;
@@ -20,7 +20,7 @@ public enum EncryptionMethods {
   public static EncryptionMethods getBySimpleName(String name){
     return switch (name) {
       case SimpleNames.CESAR_NAME->CESAR; //c
-      case SimpleNames.VISIONER_NAME->VISIONERE;// v
+      case SimpleNames.VIGENERE_NAME->VIGENERE;// v
       default -> null;
     };
   }

@@ -3,6 +3,6 @@
  * Функциональный интерфейс
  */
 public interface EncryptionFunction {
-  String process(String text);
+  String process(String text,String key);
 
 }
